@@ -1,0 +1,289 @@
+/* === Admin Dashboard Main Layout === */
+.admin-dashboard {
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  max-width: 1280px;
+  margin-top: 1000;
+}
+
+/* === Top Header with Button === */
+.admin-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+
+.admin-dashboard h2 {
+  font-size: 2rem;
+  color: #2874f0;
+}
+
+/* === Download Button === */
+.download-btn {
+  white-space: nowrap;
+  transition: 0.3s;
+  flex-shrink: 0;
+}
+
+
+.download-btn:hover {
+  background-color: #388e3c;
+  transition: 0.3s;
+}
+
+/* === Stats Summary Boxes === */
+.admin-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+
+.stat-box {
+  background-color: #ffffff;
+  border-left: 5px solid #2874f0;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 600;
+  min-width: 200px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* === Notification Panel === */
+.notification-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto;
+  padding: 1.5rem;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+
+.notification-panel textarea {
+  width: 100%;
+  height: 100px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: none;
+  outline: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: 0.3s;
+}
+
+.notification-panel textarea:focus {
+  border-color: #2874f0;
+  box-shadow: 0 0 6px rgba(40, 116, 240, 0.3);
+}
+
+.notification-panel button {
+  padding: 10px 20px;
+  background-color: #2874f0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-end;
+}
+
+.notification-panel button:hover {
+  background-color: #185fc6;
+}
+
+/* === User Grid and Cards === */
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.admin-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 24px 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* === Avatar === */
+.admin-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #2874f0;
+  margin: 0 auto 15px;
+}
+
+/* === User Info === */
+.admin-card h4 {
+  margin: 0.3rem 0;
+  color: #2874f0;
+  text-align: center;
+}
+
+.admin-card p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.admin-card strong {
+  font-weight: 600;
+}
+
+.admin-card svg {
+  margin-right: 4px;
+  vertical-align: middle;
+  color: #666;
+}
+
+/* === Status Report Line === */
+.status-report {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 500;
+}
+
+/* === Footer === */
+.admin-footer {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+/* === Ban/Unban Button === */
+.ban-btn {
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ban-btn:hover {
+  background-color: #b91c1c;
+}
+
+.ban-btn.unban {
+  background-color: #16a34a;
+}
+
+.ban-btn.unban:hover {
+  background-color: #15803d;
+}
+
+/* === Pagination === */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #2874f0;
+  background-color: #fff;
+  color: #2874f0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #2874f0;
+  color: #fff;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .notification-panel button {
+    align-self: stretch;
+    text-align: center;
+  }
+}
+
+.glass-search {
+  display: flex;
+  align-items: center;
+  background: rgba(216, 192, 192, 0.25);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
+}
+
+.glass-icon {
+  font-size: 18px;
+  margin-right: 8px;
+  color: #2874f0;
+}
+
+.glass-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #000000;
+  font-size: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
