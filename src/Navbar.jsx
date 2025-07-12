@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navbar.css';
-import { FaUserCircle, FaSearch, FaHome, FaBell } from 'react-icons/fa'; // ⬅️ Added FaBell
+import { FaUserCircle, FaSearch, FaHome, FaBell, FaTools } from 'react-icons/fa'; // FaTools for Admin
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = ({ search, setSearch, isLoggedIn, toggleLogin }) => {
@@ -13,36 +13,44 @@ const Navbar = ({ search, setSearch, isLoggedIn, toggleLogin }) => {
       </div>
 
       <div className="navbar-center">
-        <div className="search-box">
-          <FaSearch className="search-icon" />
+        <div className="glass-search">
+          <FaSearch className="glass-icon" />
           <input
             type="text"
             placeholder="Search skills, people..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="search-input"
+            className="glass-input"
           />
         </div>
       </div>
 
       <div className="navbar-right">
+        {/* Home Button */}
         <button className="nav-btn home-btn" onClick={() => navigate('/')}>
           <FaHome style={{ marginRight: '5px' }} /> Home
         </button>
 
-        {/* 🔔 Notification Icon */}
+        {/* Admin Button */}
+        <button className="nav-btn admin-btn" onClick={() => navigate('/AdminDashboard')}>
+          <FaTools style={{ marginRight: '5px' }} /> Admin
+        </button>
+
+        {/* Notifications */}
         <FaBell
           className="profile-icon"
           onClick={() => navigate('/notifications')}
           style={{ cursor: 'pointer' }}
         />
 
+        {/* Profile */}
         <FaUserCircle
           className="profile-icon"
           onClick={() => navigate('/profile')}
           style={{ cursor: 'pointer' }}
         />
 
+        {/* Auth Buttons */}
         {toggleLogin ? (
           <button className="nav-btn login-btn" onClick={toggleLogin}>
             {isLoggedIn ? 'Logout' : 'Login'}

@@ -73,18 +73,18 @@ html, body {
 }
 
 .search-box {
-  position: relative;
   display: flex;
   align-items: center;
   background: rgba(255, 255, 255, 0.15);
-  border-radius: 50px;
+  border-radius: 8px;
   padding: 0.5rem 1rem;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
 }
+
 
 .search-box:hover {
   background: rgba(255, 255, 255, 0.2);
@@ -117,8 +117,9 @@ html, body {
   color: white;
   font-size: 1rem;
   width: 100%;
-  padding: 0.3rem 0;
+  padding: 0.5rem 0;
 }
+
 
 .search-input::placeholder {
   color: rgba(255, 255, 255, 0.7);
@@ -354,4 +355,85 @@ html, body {
   50% {
     text-shadow: 0 2px 20px rgba(255, 255, 255, 0.4);
   }
+}
+
+.simple-search {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 400px; /* You can increase if needed */
+}
+
+.inline-icon {
+  color: #666;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+.simple-input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  flex: 1;
+  color: #333;
+  background: transparent;
+}
+
+.simple-input::placeholder {
+  color: #aaa;
+}
+
+.glass-search {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.15); /* translucent background */
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 500px; /* Increase as needed */
+  transition: all 0.3s ease;
+}
+
+.glass-search:hover {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.glass-icon {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  margin-right: 0.8rem;
+}
+
+.glass-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1rem;
+  flex: 1;
+}
+
+.glass-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+.admin-btn {
+  background-color: #6c757d;
+  color: white;
+  margin-left: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.admin-btn:hover {
+  background-color: #5a6268;
 }
