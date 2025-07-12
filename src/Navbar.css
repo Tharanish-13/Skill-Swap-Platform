@@ -1,0 +1,357 @@
+/* Global Reset - Add this at the top */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 60px;
+}
+
+.navbar:hover {
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Left Section - Logo */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  margin: 0;
+  background: linear-gradient(45deg, #ffffff, #e0e7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+/* Center Section - Search */
+.navbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin: 0 2rem;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 500px;
+}
+
+.search-box:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.search-box:focus-within {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.search-icon {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  margin-right: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.search-box:focus-within .search-icon {
+  color: white;
+  transform: scale(1.1);
+}
+
+.search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.3rem 0;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.search-input:focus::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Right Section - Navigation Items */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.nav-btn:active {
+  transform: translateY(0);
+}
+
+.home-btn {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.home-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.login-btn {
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  border: none;
+  font-weight: 600;
+}
+
+.login-btn:hover {
+  background: linear-gradient(45deg, #00f2fe, #4facfe);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.signup-btn {
+  background: linear-gradient(45deg, #fa709a, #fee140);
+  border: none;
+  font-weight: 600;
+  color: #333;
+}
+
+.signup-btn:hover {
+  background: linear-gradient(45deg, #fee140, #fa709a);
+  transform: translateY(-2px) scale(1.05);
+  color: white;
+}
+
+/* Icons */
+.profile-icon {
+  font-size: 2.7rem; /* Increased from 1.4rem */
+  color: rgba(255, 255, 255, 0.95);
+  transition: all 0.3s ease;
+  padding: 0.6rem; /* Slightly more padding */
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.profile-icon:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.notification-icon {
+  position: relative;
+}
+
+.notification-icon::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background: #ff4757;
+  border-radius: 50%;
+  opacity: 0;
+  animation: pulse 2s infinite;
+}
+
+.notification-icon:hover::after {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 71, 87, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 71, 87, 0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.6rem 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .navbar-center {
+    order: 3;
+    width: 100%;
+    margin: 0.5rem 0 0 0;
+  }
+  
+  .search-box {
+    max-width: 100%;
+  }
+  
+  .navbar-right {
+    gap: 0.5rem;
+  }
+  
+  .nav-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+  }
+  
+  .profile-icon,
+  .notification-icon {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem 0.8rem;
+  }
+  
+  .navbar-right {
+    gap: 0.3rem;
+  }
+  
+  .nav-btn {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
+  }
+  
+  .home-btn span {
+    display: none;
+  }
+  
+  .search-box {
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .search-input {
+    font-size: 0.9rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .navbar {
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  }
+  
+  .search-box {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-btn {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* Accessibility improvements */
+.nav-btn:focus,
+.profile-icon:focus,
+.notification-icon:focus,
+.search-input:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling enhancement */
+.navbar {
+  will-change: transform;
+}
+
+/* Additional hover effects for better UX */
+.navbar-left:hover .logo {
+  animation: logoGlow 0.6s ease-in-out;
+}
+
+@keyframes logoGlow {
+  0%, 100% {
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    text-shadow: 0 2px 20px rgba(255, 255, 255, 0.4);
+  }
+}

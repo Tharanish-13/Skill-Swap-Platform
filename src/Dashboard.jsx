@@ -1,15 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
+import { FaMapMarkerAlt, FaUserTie, FaHandshake, FaClock } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import RequestModal from './RequestPage';
+import Profile from './Profile';
 
-const Dashboard = () => {
+const Dashboard = ({ search, isLoggedIn }) => {
+  const navigate = useNavigate();
   const [users, setUsers] = useState([]);
-  const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const usersPerPage = 4;
   const [totalPages, setTotalPages] = useState(1);
 
+  // Modal state
+  const [showModal, setShowModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
+
   useEffect(() => {
-    // Simulated data fetch
     const dummyUsers = [
       {
         _id: '1',
@@ -83,28 +90,20 @@ const Dashboard = () => {
     setTotalPages(Math.ceil(filtered.length / usersPerPage));
   }, [search, page]);
 
-  // Request click handler
-  const handleRequest = (id) => {
-    const updatedUsers = users.map((user) =>
-      user._id === id ? { ...user, req_status: true } : user
-    );
-    setUsers(updatedUsers);
-  };
+ const handleRequestClick = (user) => {
+  if (!isLoggedIn) {
+    alert("❌ Please login to send a request.");
+    return;
+  }
+
+  setSelectedUser(user);
+  setShowModal(true);
+};
+
 
   return (
     <div className="dashboard">
-      <h2>User Directory</h2>
-
-      <input
-        type="text"
-        placeholder="Search by name, email, skill..."
-        value={search}
-        onChange={(e) => {
-          setSearch(e.target.value);
-          setPage(1);
-        }}
-        className="search-input"
-      />
+      <h2>Skill Swap</h2>
 
       <div className="user-grid">
         {users.length > 0 ? (
@@ -117,30 +116,16 @@ const Dashboard = () => {
               />
               <h4>{user.name}</h4>
               <p>{user.email}</p>
-              <p>📍 {user.location || 'N/A'}</p>
-              <p>
-                🎓 <strong>Offered:</strong>{' '}
-                {user.skills_offered?.join(', ') || 'None'}
-              </p>
-              <p>
-                🤝 <strong>Wanted:</strong>{' '}
-                {user.skills_wanted?.join(', ') || 'None'}
-              </p>
-              <p>
-                ⏰ <strong>Availability:</strong>{' '}
-                {user.availability?.join(', ') || 'N/A'}
-              </p>
+              <p><FaMapMarkerAlt /> {user.location}</p>
+              <p><FaUserTie /> <strong>Offered:</strong> {user.skills_offered.join(', ')}</p>
+              <p><FaHandshake /> <strong>Wanted:</strong> {user.skills_wanted.join(', ')}</p>
+              <p><FaClock /> <strong>Availability:</strong> {user.availability.join(', ')}</p>
 
-              {!user.req_status ? (
-                <button
-                  className="request-btn"
-                  onClick={() => handleRequest(user._id)}
-                >
+              <div className="card-footer">
+                <button className="request-btn" onClick={() => handleRequestClick(user)}>
                   Request
                 </button>
-              ) : (
-                <p className="request-sent">✅ Request Sent</p>
-              )}
+              </div>
             </div>
           ))
         ) : (
@@ -152,16 +137,19 @@ const Dashboard = () => {
         <button onClick={() => setPage((p) => Math.max(p - 1, 1))} disabled={page === 1}>
           ⬅ Prev
         </button>
-        <span>
-          Page {page} of {totalPages}
-        </span>
-        <button
-          onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
-          disabled={page === totalPages}
-        >
+        <span>Page {page} of {totalPages}</span>
+        <button onClick={() => setPage((p) => Math.min(p + 1, totalPages))} disabled={page === totalPages}>
           Next ➡
         </button>
       </div>
+
+      {/* Request Modal */}
+      {showModal && selectedUser && (
+        <RequestModal
+          user={{ id: selectedUser._id, name: selectedUser.name }}
+          onClose={() => setShowModal(false)}
+        />
+      )}
     </div>
   );
 };
