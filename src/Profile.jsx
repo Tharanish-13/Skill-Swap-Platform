@@ -197,29 +197,22 @@ const Profile = () => {
           </div>
         </label>
 
-        <fieldset>
-          <legend>Availability:</legend>
-          <label>
-            <input
-              type="radio"
-              name="availability"
-              value="weekdays"
-              checked={profile.availability === "weekdays"}
-              onChange={handleChange}
-            />
-            Weekdays
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="availability"
-              value="weekend"
-              checked={profile.availability === "weekend"}
-              onChange={handleChange}
-            />
-            Weekend
-          </label>
-        </fieldset>
+        <div className="form-group">
+  <label htmlFor="availability">Availability:</label>
+  <select
+    id="availability"
+    name="availability"
+    value={profile.availability}
+    onChange={handleChange}
+  >
+    <option value="">-- Select Availability --</option>
+    <option value="weekdays">Weekdays</option>
+    <option value="weekend">Weekend</option>
+    <option value="evenings">Evenings</option>
+    <option value="mornings">Mornings</option>
+  </select>
+</div>
+
 
         <label>
           Profile Visibility:
