@@ -6,29 +6,47 @@ function RequestModal({ user, onClose }) {
   const [skillsWant, setSkillsWant] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (!skillsHave.trim() && !skillsWant.trim() && !message.trim()) {
-      alert("Please fill at least one field before submitting.");
-      return;
+  if (!skillsHave.trim() && !skillsWant.trim() && !message.trim()) {
+    alert("Please fill at least one field before submitting.");
+    return;
+  }
+
+  try {
+    const token = localStorage.getItem("token") || "no-token";
+
+    const response = await fetch("http://localhost:8000/swap-request/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        from_user: token, // assuming token holds from_user ID
+        to_user: user.id,
+        offered_skills: skillsHave.split(",").map(s => s.trim()).filter(Boolean),
+        requested_skills: skillsWant.split(",").map(s => s.trim()).filter(Boolean),
+        message,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to send request");
     }
 
-    // Simulated API delay
-    setTimeout(() => {
-      console.log("Mock Request Submitted:", {
-        toUserId: user.id,
-        toUserName: user.name,
-        skillsHave: skillsHave.split(",").map(s => s.trim()).filter(Boolean),
-        skillsWant: skillsWant.split(",").map(s => s.trim()).filter(Boolean),
-        message,
-        token: localStorage.getItem("token") || "no-token",
-      });
+    const data = await response.json();
+    console.log("✅ Request created:", data);
 
-      alert("✅ Request sent (simulated)!");
-      onClose();
-    }, 1000);
-  };
+    alert("✅ Request sent!");
+    onClose();
+
+  } catch (err) {
+    console.error(err);
+    alert("❌ Error sending request");
+  }
+};
 
   return (
     <div className="modal">

@@ -43,16 +43,15 @@ const Navbar = ({ search, setSearch, isLoggedIn, toggleLogin }) => {
           style={{ cursor: 'pointer' }}
         />
 
-        {toggleLogin ? (
-          <button className="nav-btn login-btn" onClick={toggleLogin}>
-            {isLoggedIn ? 'Logout' : 'Login'}
-          </button>
-        ) : (
-          <>
-            <button className="nav-btn login-btn" onClick={() => navigate('/login')}>Login</button>
-            <button className="nav-btn signup-btn" onClick={() => navigate('/signup')}>Sign Up</button>
-          </>
-        )}
+        {isLoggedIn ? (
+  <button className="nav-btn login-btn" onClick={toggleLogin}>Logout</button>
+) : (
+  <>
+    <button className="nav-btn login-btn" onClick={() => navigate('/login')}>Login</button>
+    <button className="nav-btn signup-btn" onClick={() => navigate('/signup')}>Sign Up</button>
+  </>
+)}
+
       </div>
     </nav>
   );
