@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navbar.css';
-import { FaUserCircle, FaSearch, FaHome, FaBell, FaTools } from 'react-icons/fa'; // FaTools for Admin
+import { FaUserCircle, FaSearch, FaHome, FaBell, FaTools } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = ({ search, setSearch, isLoggedIn, toggleLogin }) => {
