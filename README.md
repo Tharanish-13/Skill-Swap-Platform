@@ -1,15 +1,50 @@
-<<<<<<< HEAD
-# React + Vite
+# 🤝 Skill Swap Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A mini web application that empowers users to exchange skills by offering what they know and requesting what they want to learn — building a collaborative, peer-to-peer learning community.
 
-Currently, two official plugins are available:
+![Skill Swap Banner](https://your-banner-image-url-if-any.com)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
->>>>>>> ed0111c1c68f23aa71bc437e93d86c772f1da497
+### 👤 User Functionality
+- Create a profile with name, location (optional), and profile photo
+- Add **skills offered** and **skills wanted**
+- Set availability: evenings, weekends, etc.
+- Make your profile **public or private**
+- **Search and browse** other users by skill (e.g., "Excel", "Video Editing")
+- Send and manage **swap requests**
+- Accept or reject swap offers
+- View **current**, **pending**, and **cancelled** swaps
+- Rate and give **feedback** after each swap
+- Delete unaccepted swap requests
+
+### 🛡️ Admin Capabilities
+- Reject spammy or inappropriate skill descriptions
+- Ban users who violate policies
+- Monitor pending, accepted, and cancelled swaps
+- Send platform-wide announcements (e.g., feature updates, downtime)
+- Download logs: user activity, feedback, and swap reports
+
+---
+
+## 🛠 Tech Stack
+
+| Frontend       | Backend       | Database | Authentication |
+|----------------|----------------|----------|-----------------|
+| React + Vite | FastAPI / Flask | MongoDB  | JWT / OAuth     |
+
+---
+
+## 🖼 UI Mockup
+📐 [View Wireframe on Excalidraw](https://link.excalidraw.com/l/65VNwvy7c4X/8bM86GXnnUN)
+
+---
+
+## 🏁 Getting Started
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Tharanish-13/Skill-Swap-Platform.git
+cd Skill-Swap-Platform
