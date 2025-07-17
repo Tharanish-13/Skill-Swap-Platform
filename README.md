@@ -48,3 +48,20 @@ A mini web application that empowers users to exchange skills by offering what t
 ```bash
 git clone https://github.com/Tharanish-13/Skill-Swap-Platform.git
 cd Skill-Swap-Platform
+```
+
+### 2. Backend Setup
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
+
+### 3. Frontend Setup
+```bash
+cd frontend
+npm install
+npm start
+```
